@@ -7,7 +7,7 @@ const input = document.querySelector('input');
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     const address = input.value;
-    const api = 'http://localhost:3000/weather?address=';
+    const api = '/weather?address=';
     if (address) {
         fetch(`${api}${address}`).then(res => {
             res.json().then((data) => {
@@ -15,7 +15,7 @@ form.addEventListener('submit', (event) => {
                     // console.log(data.error);
                     mes1.innerHTML = data.error;
                 } else {
-                    console.log(data);
+                    console.log('successfully');
                     mes1.innerHTML = data.forecast;
                     mes2.innerHTML = data.location;
                     input.value = '';
